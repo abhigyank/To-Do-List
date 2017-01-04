@@ -77,7 +77,7 @@ function completed(element){
 function getData(){
 	var data = new Array;
 	var data_str = localStorage.getItem('todo');
-	if (data_str != null && data_str != ""){
+	if (data_str != null){
 		data = JSON.parse(data_str);
 	}
 	return data;
@@ -98,7 +98,6 @@ function addTask() {
 	var task = newTask.value;
 	if(task != "") {
 		data.push(newTask.value);
-		console.log(data);
 		localStorage.setItem('todo', JSON.stringify(data));
 		add(newTask.value,data.length-1);
 		newTask.value="";
