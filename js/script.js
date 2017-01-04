@@ -77,7 +77,7 @@ function completed(element){
 function getData(){
 	var data = new Array;
 	var data_str = localStorage.getItem('todo');
-	if (data_str != null){
+	if (data_str != null && data_str != ""){
 		data = JSON.parse(data_str);
 	}
 	return data;
@@ -95,11 +95,14 @@ function getCompletedData(){
 
 function addTask() {
 	var data = getData();
-	data.push(newTask.value);
-	localStorage.setItem('todo', JSON.stringify(data));
-	add(newTask.value,data.length-1);
-	newTask.value="";
-	
+	var task = newTask.value;
+	if(task != "") {
+		data.push(newTask.value);
+		console.log(data);
+		localStorage.setItem('todo', JSON.stringify(data));
+		add(newTask.value,data.length-1);
+		newTask.value="";
+	}
 	return false;
 };
 
