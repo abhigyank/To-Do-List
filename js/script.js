@@ -24,6 +24,7 @@ function createNewTaskElement(str,i) {
 	checkBox.setAttribute("onclick","completed(this)");
 	checkBox.className = "mdl-checkbox__input";
 	span.className = "mdl-checkbox__label";
+	span.id = "text-" + (Number(i)+1);
 	span.innerText = str;
 	deleteButton.className = "mdl-button mdl-js-button mdl-js-ripple-effect delete";
 	deleteButton.innerText = "Delete";
@@ -62,7 +63,7 @@ function completedTaskElement(str, i){
 function completed(element){
 	var id = element.getAttribute('id');
 	var complete = getCompletedData();
-	str = document.getElementsByTagName("span")[Number(id)+5].innerText;
+	str = document.getElementById("text-" + Number(id)).innerText;
 	complete.push(str);
 	localStorage.setItem('complete',JSON.stringify(complete));
 	completeTasks.appendChild(completedTaskElement(str,complete.length-1));
