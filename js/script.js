@@ -95,11 +95,13 @@ function getCompletedData(){
 
 function addTask() {
 	var data = getData();
-	data.push(newTask.value);
-	localStorage.setItem('todo', JSON.stringify(data));
-	add(newTask.value,data.length-1);
-	newTask.value="";
-	
+	var task = newTask.value;
+	if(task != "") {
+		data.push(newTask.value);
+		localStorage.setItem('todo', JSON.stringify(data));
+		add(newTask.value,data.length-1);
+		newTask.value="";
+	}
 	return false;
 };
 
