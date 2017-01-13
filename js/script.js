@@ -102,6 +102,7 @@ function addTask() {
 		localStorage.setItem('todo', JSON.stringify(data));
 		add(newTask.value,data.length-1);
 		newTask.value="";
+		componentHandler.upgradeDom();
 	}
 	return false;
 };
