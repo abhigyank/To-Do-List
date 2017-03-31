@@ -73,6 +73,7 @@ function completed(element){
 	localStorage.setItem('todo', JSON.stringify(data));
 	incompleteTasks.innerHTML="";
 	showIncomplete();
+	componentHandler.upgradeDom();
 };
 
 function getData(){
@@ -135,6 +136,7 @@ function deleteIncomplete(){
 	localStorage.setItem('todo', JSON.stringify(data));
 	incompleteTasks.innerHTML="";
 	showIncomplete();
+	componentHandler.upgradeDom();
 	return false;
 };
 
